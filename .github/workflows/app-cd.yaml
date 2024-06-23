@@ -1,0 +1,46 @@
+name: Application CD
+
+on:
+  workflow_call:
+
+permissions:
+  checks: write
+  id-token: write
+  contents: write
+  security-events: write
+
+jobs:
+
+  app-cd:
+    name: App CD
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@main
+        with:
+          role-to-assume: ${{ secrets.AWS_ASSUME_ROLE }}
+          aws-region: eu-west-1
+          role-session-name: API_CD_GitHub_to_AWS_via_FederatedOIDC
+
+      - name: Retrieve App config from AWS Parameter Store
+        run: |
+          aws ssm get-parameters-by-path --path "/admin-portal/config" --recursive --with-decryption > parameters.json
+  
+      - name: Create .env file
+        run: |
+          jq -r '.Parameters[] | "\(.Name | split("/")[-1])=\(.Value)"' parameters.json > .env
+
+      - name: Install App dependencies
+        run: |
+          npm install
+
+      - name: Build App
+        run: |
+          npm run build
+
+      - name: Deploy Website Files
+        run: aws s3 cp . s3://noinfluence-frontend/ --recursive
