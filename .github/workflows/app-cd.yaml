@@ -44,4 +44,4 @@ jobs:
           npm run build
 
       - name: Deploy Website Files
-        run: aws s3 cp . s3://noinfluence-frontend/ --recursive
+        run: aws s3 cp . s3://admin-portal-frontend/ --recursive
