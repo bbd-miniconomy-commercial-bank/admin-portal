@@ -26,13 +26,13 @@ jobs:
           aws-region: eu-west-1
           role-session-name: App_CI_GitHub_to_AWS_via_FederatedOIDC
 
-      - name: Retrieve App config from AWS Parameter Store
+      - name: Retrieve Service config from AWS Parameter Store
         run: |
-          aws ssm get-parameters-by-path --path "/my/application" --recursive --with-decryption > parameters.json
+          aws ssm get-parameters-by-path --path "/admin-portal/prod/" --recursive --with-decryption > parameters.json
   
       - name: Create .env file
         run: |
-          jq -r '.Parameters[] | "\(.Name | split("/")[-1])=\(.Value)"' parameters.json > .env
+          jq -r '.Parameters[] | "\(.Value)"' parameters.json > .env
 
       - name: Install App dependencies
         run: |
