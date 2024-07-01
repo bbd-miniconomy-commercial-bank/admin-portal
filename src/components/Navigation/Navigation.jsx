@@ -1,48 +1,37 @@
-import { CNavbar, CNavbarBrand, CContainer, CNavItem, CNavLink, CCollapse, CNavbarToggler, CNavbarNav } from '@coreui/react';
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import { SidebarData } from './SidebarData.jsx';
+import './Navigation.css';
+import { IconContext } from 'react-icons';
 
 const Navigation = () => {
+  const [sidebar, setSidebar] = useState(false);
 
-    const [visible, setVisible] = useState(true);
-    const navigate = useNavigate();
+  const showSidebar = () => setSidebar(!sidebar);
 
-    return (
-        <CNavbar expand="lg" className="bg-body-tertiary">
-            <CContainer fluid>
-                <CNavbarToggler onClick={() => setVisible(!visible)} />
-                <CCollapse className="navbar-collapse" visible={visible}>
-                    <CNavbarNav>
-                        <CNavItem>
-                            <CNavLink href="#" active>
-                                Accounts
-                            </CNavLink>
-                        </CNavItem>
-                        <CNavItem>
-                            <CNavLink href="#">
-                                View Transactions
-                            </CNavLink>
-                        </CNavItem>
-                        <CNavItem>
-                            <CNavLink href="#">
-                                View Loans
-                            </CNavLink>
-                        </CNavItem>
-                        <CNavItem>
-                            <CNavLink href="#">
-                                View Debit Orders
-                            </CNavLink>
-                        </CNavItem>
-                        <CNavItem>
-                            <CNavLink href="#">
-                                Log out
-                            </CNavLink>
-                        </CNavItem>
-                    </CNavbarNav>
-                </CCollapse>
-            </CContainer>
-        </CNavbar>
-    )
+  return (
+    <>
+      <IconContext.Provider value={{ color: '#fff' }}>
+        
+        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className='nav-menu-items' onClick={showSidebar}>
+            {SidebarData.map((item, index) => {
+              return (
+                <li key={index} className={item.cName}>
+                  <Link to={item.path}>
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </IconContext.Provider>
+    </>
+  );
 }
 
 export default Navigation

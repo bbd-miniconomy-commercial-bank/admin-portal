@@ -1,7 +1,8 @@
 import {Outlet} from "react-router-dom";
 
 import Header from "../../components/Header/Header.jsx"
-import Navigation from "../../components/Navigation/Navigation.jsx"
+import Navigation from "../../components/Navigation/Navigation.jsx";
+
 
 const Main = () => {
     return (
