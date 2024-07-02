@@ -9,9 +9,22 @@ import { PrimeReactProvider } from 'primereact/api';
 import 'primeflex/primeflex.css';  
 import 'primereact/resources/primereact.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
-
+import { Badge } from 'primereact/badge';
 import { FilterMatchMode } from "primereact/api";
 import { InputText } from "primereact/inputtext";
+
+const statusBadge = (status) => {
+  const badgeStyle = {
+    borderRadius: '6px', // Decrease border-radius
+    padding: '0px 5px 5px 5px',  // Add padding for space between border and text
+  };
+  if (status === false) {
+    return <Badge value="On going" severity="success" style={badgeStyle}></Badge>
+  } else if (status === true) {
+    return <Badge value="Finished" severity="danger" style={badgeStyle}></Badge>
+  }
+  return status; // Fallback if status is neither 'Pending' nor 'Completed'
+};
 
 const DebitOrders = () => {
 
@@ -49,7 +62,7 @@ const DebitOrders = () => {
         <Column field="debitOrderAmount" header="Amount" sortable></Column>
         <Column field="senderRef" header="Sender Ref." sortable></Column>
         <Column field="receiverRef" header="Receiver Ref." sortable></Column>
-        <Column field="disabled" header="Status" sortable/>
+        <Column field="disabled" header="Status" sortable body={(rowData) => statusBadge(rowData.disabled)}/>
       </DataTable>
     </div>
   );

@@ -1,7 +1,41 @@
+.transactions-container {
+  padding: 20px; /* Adjust padding as needed */
+  margin-left: 20%;
+}
+
+.search-container {
+  margin-bottom: 20px; /* Space between the search input and the table */
+}
+
+.search-input {
+  width: 50%; /* Adjust width as needed */
+  padding: 10px; /* Add padding for better visibility */
+  border: 1px solid #ccc; /* Add a border to make it more visible */
+  border-radius: 4px; /* Optional: Add border-radius for a smoother look */
+}
+
 .transactions {
-    display: flex;
-    height: 80vh;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-  }
+  width: 95%; /* Adjust the width as per your sidebar's width */
+  box-sizing: border-box;
+  margin-top: 1em;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  height: 3em;
+}
+
+/* Hide pagination controls when not needed */
+.p-datatable.p-datatable-gridlines .p-datatable-tbody > tr {
+  display: flex;
+  justify-content: center;
+}
+
+.p-datatable.p-datatable-gridlines .p-paginator-bottom .p-paginator {
+  display: none;
+}
+
+/* Ensure pagination is correctly positioned */
+.p-paginator-bottom {
+  display: flex;
+  justify-content: center;
+}
