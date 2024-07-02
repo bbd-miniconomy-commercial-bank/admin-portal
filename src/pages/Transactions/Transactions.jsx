@@ -13,6 +13,7 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import { Badge } from 'primereact/badge';
 import { FilterMatchMode } from "primereact/api";
 import { InputText } from "primereact/inputtext";
+import Card from 'react-bootstrap/Card';
 
 const statusBadge = (status) => {
   const badgeStyle = {
@@ -36,39 +37,45 @@ const Transactions = () => {
   })
 
   return (
-    <div className="transactions-container">
-      <InputText 
-        onInput={(e) =>
-          setFilters({
-            global: { value: e.target.value, matchMode: FilterMatchMode.CONTAINS }
-          })
-        }
-        placeholder="Filter..."
-        className="search-input"
-      />
+    <div className="main-container">
+      <Card className="transaction-header transaction-card">
+        <Card.Header>Transactions</Card.Header>
+      </Card>
+      <div className="transactions-container">
+        <InputText 
+          onInput={(e) =>
+            setFilters({
+              global: { value: e.target.value, matchMode: FilterMatchMode.CONTAINS }
+            })
+          }
+          placeholder="Filter..."
+          className="search-input"
+        />
 
-      <DataTable 
-        value={
-          transactions.filter((t) => !accountName || t.debitAccountName === accountName || t.creditAccountName === accountName)
-        } // Filter transactions based on accountName if present
-        className="transactions" 
-        sortMode="multiple" 
-        filters={filters}
-        paginator
-        rows={5}
-        rowsPerPageOptions={[5,10,15]}
-        rowClassName="table-row"
-        
-      >
-        <Column field="id" header="ID" sortable></Column>
-        <Column field="debitAccountName" header="Debit Account" sortable></Column>
-        <Column field="creditAccountName" header="Credit Account" sortable></Column>
-        <Column field="transactionDate" header="Date" sortable></Column>
-        <Column field="transactionAmount" header="Amount" sortable></Column>
-        <Column field="creditRef" header="Dredit Ref." sortable></Column>
-        <Column field="debitRef" header="Debit Ref." sortable></Column>
-        <Column field="transactionStatus" header="Status" sortable body={(rowData) => statusBadge(rowData.transactionStatus)}></Column>
-      </DataTable>
+        <DataTable 
+          value={
+            transactions.filter((t) => !accountName || t.debitAccountName === accountName || t.creditAccountName === accountName)
+          } // Filter transactions based on accountName if present
+          className="transactions" 
+          sortMode="multiple" 
+          filters={filters}
+          paginator
+          rows={5}
+          rowsPerPageOptions={[5,10,15]}
+          rowClassName="table-row"
+          style={{alignItems: 'center'}}
+          
+        >
+          <Column field="id" header="ID" sortable style={{ width: '3% '}}></Column>
+          <Column field="debitAccountName" header="Debit Account" sortable style={{ width: '20% '}}></Column>
+          <Column field="creditAccountName" header="Credit Account" sortable style={{ width: '20% '}}></Column>
+          <Column field="transactionDate" header="Date" sortable style={{ width: '15% '}}></Column>
+          <Column field="transactionAmount" header="Amount" sortable style={{ width: '5% '}}></Column>
+          <Column field="creditRef" header="Dredit Ref." sortable style={{ width: '20% '}}></Column>
+          <Column field="debitRef" header="Debit Ref." sortable style={{ width: '30% '}}></Column>
+          <Column field="transactionStatus" header="Status" sortable body={(rowData) => statusBadge(rowData.transactionStatus)}></Column>
+        </DataTable>
+      </div>
     </div>
   );
 }

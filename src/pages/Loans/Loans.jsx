@@ -13,6 +13,7 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import { Badge } from 'primereact/badge';
 import { FilterMatchMode } from "primereact/api";
 import { InputText } from "primereact/inputtext";
+import Card from 'react-bootstrap/Card';
 
 const statusBadge = (status) => {
   const badgeStyle = {
@@ -36,35 +37,40 @@ const Loans = () => {
   })
 
   return (
-    <div className="loans-container">
-      <InputText 
-        onInput={(e) =>
-          setFilters({
-            global: { value: e.target.value, matchMode: FilterMatchMode.CONTAINS }
-          })
-        }
-        placeholder="Search..."
-        className="search-input"
-      />
+    <div className="main-container">
+      <Card className="loans-header loans-card">
+        <Card.Header>Loans</Card.Header>
+      </Card>
+      <div className="loans-container">
+        <InputText 
+          onInput={(e) =>
+            setFilters({
+              global: { value: e.target.value, matchMode: FilterMatchMode.CONTAINS }
+            })
+          }
+          placeholder="Search..."
+          className="search-input"
+        />
 
-      <DataTable 
-        value={
-          loans.filter((loan) => !accountName || loan.accountName === accountName)
-        } 
-        className="loans" 
-        sortMode="multiple" 
-        filters={filters}
-        paginator
-        rows={5}
-        rowsPerPageOptions={[5,10,15]}
-        rowClassName="table-row"
-        
-      >
-        <Column field="id" header="ID" sortable></Column>
-        <Column field="accountName" header="Account" sortable></Column>
-        <Column field="loanAmount" header="Amount" sortable></Column>
-        <Column field="loanType" header="Loan Type" sortable body={(rowData) => statusBadge(rowData.loanType)}/>
-      </DataTable>
+        <DataTable 
+          value={
+            loans.filter((loan) => !accountName || loan.accountName === accountName)
+          } 
+          className="loans" 
+          sortMode="multiple" 
+          filters={filters}
+          paginator
+          rows={5}
+          rowsPerPageOptions={[5,10,15]}
+          rowClassName="table-row"
+          
+        >
+          <Column field="id" header="ID" sortable></Column>
+          <Column field="accountName" header="Account" sortable></Column>
+          <Column field="loanAmount" header="Amount" sortable></Column>
+          <Column field="loanType" header="Loan Type" sortable body={(rowData) => statusBadge(rowData.loanType)}/>
+        </DataTable>
+      </div>
     </div>
   );
 }

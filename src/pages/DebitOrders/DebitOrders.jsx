@@ -13,6 +13,7 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import { Badge } from 'primereact/badge';
 import { FilterMatchMode } from "primereact/api";
 import { InputText } from "primereact/inputtext";
+import Card from 'react-bootstrap/Card';
 
 const statusBadge = (status) => {
   const badgeStyle = {
@@ -36,39 +37,44 @@ const DebitOrders = () => {
   })
 
   return (
-    <div className="debit-orders-container">
-      <InputText 
-        onInput={(e) =>
-          setFilters({
-            global: { value: e.target.value, matchMode: FilterMatchMode.CONTAINS }
-          })
-        }
-        placeholder="Search..."
-        className="search-input"
-      />
+    <div className="main-container">
+      <Card className="debit-orders-header debit-orders-card">
+        <Card.Header>Debit Orders</Card.Header>
+      </Card>
+      <div className="debit-orders-container">
+        <InputText 
+          onInput={(e) =>
+            setFilters({
+              global: { value: e.target.value, matchMode: FilterMatchMode.CONTAINS }
+            })
+          }
+          placeholder="Filter..."
+          className="search-input"
+        />
 
-      <DataTable 
-        value={
-          debitOrders.filter((d) => !accountName || d.debitAccountName === accountName || d.creditAccountName === accountName)
-        } 
-        className="debit-orders" 
-        sortMode="multiple" 
-        filters={filters}
-        paginator
-        rows={5}
-        rowsPerPageOptions={[5,10,15]}
-        rowClassName="table-row"
-        
-      >
-        <Column field="id" header="ID" sortable></Column>
-        <Column field="debitAccountName" header="Debit Account" sortable></Column>
-        <Column field="creditAccountName" header="Credit Account" sortable></Column>
-        <Column field="creationDate" header="Date" sortable></Column>
-        <Column field="debitOrderAmount" header="Amount" sortable></Column>
-        <Column field="senderRef" header="Sender Ref." sortable></Column>
-        <Column field="receiverRef" header="Receiver Ref." sortable></Column>
-        <Column field="disabled" header="Status" sortable body={(rowData) => statusBadge(rowData.disabled)}/>
-      </DataTable>
+        <DataTable 
+          value={
+            debitOrders.filter((d) => !accountName || d.debitAccountName === accountName || d.creditAccountName === accountName)
+          } 
+          className="debit-orders" 
+          sortMode="multiple" 
+          filters={filters}
+          paginator
+          rows={5}
+          rowsPerPageOptions={[5,10,15]}
+          rowClassName="table-row"
+          
+        >
+          <Column field="id" header="ID" sortable></Column>
+          <Column field="debitAccountName" header="Debit Account" sortable></Column>
+          <Column field="creditAccountName" header="Credit Account" sortable></Column>
+          <Column field="creationDate" header="Date" sortable></Column>
+          <Column field="debitOrderAmount" header="Amount" sortable></Column>
+          <Column field="senderRef" header="Sender Ref." sortable></Column>
+          <Column field="receiverRef" header="Receiver Ref." sortable></Column>
+          <Column field="disabled" header="Status" sortable body={(rowData) => statusBadge(rowData.disabled)}/>
+        </DataTable>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,6 @@
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-    margin-left: 15%; /* Offset for the sidebar width */
+    margin-left: 20%; /* Offset for the sidebar width */
     width: 80%; /* Adjust width to fit the remaining space */
 }

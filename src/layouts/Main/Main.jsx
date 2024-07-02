@@ -8,7 +8,7 @@ const Main = () => {
     return (
         <div>
             <Header logoutButton={true} />
-            <Navigation />
+            <Navigation loggedin={true}/>
             <main>
                 <Outlet />
             </main>
