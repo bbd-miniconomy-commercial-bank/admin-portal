@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    border-bottom: 1px solid var(--primary);; /* Add this line to create a border */
+    border-bottom: 1px solid var(--primary); /* Add this line to create a border */
+    background: var(--primary);
 }
 
 .logo-container {
@@ -27,5 +28,15 @@
     font-size: 2rem;
     font-weight: bold;
     margin: 0;
+    color: var(--tertiary);
+}
+
+button {
+    color: var(--primary);
+    background: var(--quaternary);
+}
+
+button:hover {
+    background: var(--tertiary);
 }
 
