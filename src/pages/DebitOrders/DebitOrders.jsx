@@ -1,6 +1,7 @@
 import React from "react";
 import "./DebitOrders.css"
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { debitOrders } from "./DebitOrdersData";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -28,6 +29,8 @@ const statusBadge = (status) => {
 
 const DebitOrders = () => {
 
+  const { accountName } = useParams(); // Grab accountName from URL parameter
+
   const [filters, setFilters] = useState({
     global: { value:null, matchMode: FilterMatchMode.CONTAINS },
   })
@@ -45,7 +48,9 @@ const DebitOrders = () => {
       />
 
       <DataTable 
-        value={debitOrders} 
+        value={
+          debitOrders.filter((d) => !accountName || d.debitAccountName === accountName || d.creditAccountName === accountName)
+        } 
         className="debit-orders" 
         sortMode="multiple" 
         filters={filters}

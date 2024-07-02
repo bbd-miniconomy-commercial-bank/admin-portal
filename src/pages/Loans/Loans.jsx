@@ -1,6 +1,7 @@
 import React from "react";
 import "./Loans.css"
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { loans } from "./LoansData";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -28,12 +29,14 @@ const statusBadge = (status) => {
 
 const Loans = () => {
 
+  const { accountName } = useParams(); // Grab accountName from URL parameter
+
   const [filters, setFilters] = useState({
     global: { value:null, matchMode: FilterMatchMode.CONTAINS },
   })
 
   return (
-    <div className="debit-orders-container">
+    <div className="loans-container">
       <InputText 
         onInput={(e) =>
           setFilters({
@@ -45,8 +48,10 @@ const Loans = () => {
       />
 
       <DataTable 
-        value={loans} 
-        className="debit-orders" 
+        value={
+          loans.filter((loan) => !accountName || loan.accountName === accountName)
+        } 
+        className="loans" 
         sortMode="multiple" 
         filters={filters}
         paginator

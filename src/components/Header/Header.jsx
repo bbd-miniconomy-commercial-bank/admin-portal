@@ -17,7 +17,7 @@ const Header = ({ logoutButton }) => {
             {logoutButton && (
                 <button className="logout-button" onClick={async () => {
                     await signOut().then(() => {
-                        navigate("/login");
+                        navigate("/admin/login");
                     });
                 }}>
                     Logout

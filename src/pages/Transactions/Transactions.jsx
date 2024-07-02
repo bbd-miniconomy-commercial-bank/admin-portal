@@ -1,6 +1,7 @@
 import React from "react";
 import "./Transactions.css"
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { transactions } from "./TransactionsData";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -28,6 +29,8 @@ const statusBadge = (status) => {
 
 const Transactions = () => {
 
+  const { accountName } = useParams(); // Grab accountName from URL parameter
+
   const [filters, setFilters] = useState({
     global: { value:null, matchMode: FilterMatchMode.CONTAINS },
   })
@@ -40,12 +43,14 @@ const Transactions = () => {
             global: { value: e.target.value, matchMode: FilterMatchMode.CONTAINS }
           })
         }
-        placeholder="Search..."
+        placeholder="Filter..."
         className="search-input"
       />
 
       <DataTable 
-        value={transactions} 
+        value={
+          transactions.filter((t) => !accountName || t.debitAccountName === accountName || t.creditAccountName === accountName)
+        } // Filter transactions based on accountName if present
         className="transactions" 
         sortMode="multiple" 
         filters={filters}

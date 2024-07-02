@@ -2,8 +2,12 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import "./AccountCard.css"
+import { useNavigate } from "react-router-dom";
 
-const AccountCard = ({ title, text, balance, isHeader }) => {
+const AccountCard = ({ id, title, accountName, balance, isHeader }) => {
+
+  const navigate = useNavigate();
+
   return (
     <Card className={`account-card ${isHeader ? 'account-header' : ''}`}>
       {isHeader && <Card.Header>{title}</Card.Header>}
@@ -13,9 +17,19 @@ const AccountCard = ({ title, text, balance, isHeader }) => {
             <Card.Title className="card-title">{title}</Card.Title>
             <Card.Text className="card-text">
               <ul>
-                <li>View Transactions</li>
-                <li>View Loans</li>
-                <li>View Debit Orders</li>
+                <li onClick={() => {
+                  navigate(`/admin/transactions/${encodeURIComponent(accountName)}`)
+                }}>
+                  View Transactions
+                </li>
+                <li onClick={() => {
+                  navigate(`/admin/loans/${encodeURIComponent(accountName)}`)
+                }}>
+                  View Loans
+                </li>
+                <li onClick={() => {
+                  navigate(`/admin/debitOrders/${encodeURIComponent(accountName)}`)
+                }}>View Debit Orders</li>
               </ul>
             </Card.Text>
             <Card.Footer className="card-footer">

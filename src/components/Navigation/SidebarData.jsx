@@ -7,31 +7,31 @@ import { MdLogout } from "react-icons/md";
 export const SidebarData = [
     {
       title: 'Accounts',
-      path: '/accounts',
+      path: '/admin/accounts',
       icon: <FaHome />,
       cName: 'nav-text'
     },
     {
       title: 'Transactions',
-      path: '/transactions',
+      path: '/admin/transactions',
       icon: <FaCreditCard />,
       cName: 'nav-text'
     },
     {
       title: 'Loans',
-      path: '/loans',
+      path: '/admin/loans',
       icon: <GiReceiveMoney />,
       cName: 'nav-text'
     },
     {
       title: 'Debit Orders',
-      path: '/debitorders',
+      path: '/admin/debitorders',
       icon: <FaEnvelopeOpenText />,
       cName: 'nav-text'
     },
     {
       title: 'Logout',
-      path: '/login',
+      path: '/admin/login',
       icon: <MdLogout />,
       cName: 'nav-text'
     }
