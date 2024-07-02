@@ -6,10 +6,7 @@ import DebitOrders from "./pages/DebitOrders/DebitOrders.jsx"
 
 import Main from "./layouts/Main/Main.jsx";
 import Login from "./pages/Login/Login.jsx";
-//import SignUp from "./pages/SignUp /SignUp.jsx";
-//import Error from "./pages/Error/Error.jsx";
-//import Confirmation from "./pages/Confirmation/Confirmation.jsx";
-//import MFA from "./pages/MFA/MFA.jsx";
+import Unauthenticated from "./pages/Unauthorized/Unauthenticated.jsx"
 
 const router = createBrowserRouter([
   {
@@ -17,6 +14,11 @@ const router = createBrowserRouter([
     element: <Main />,
     errorElement: <Error />,
     children: [
+      {
+        path: "/login",
+        element: <Login />,
+        errorElement: <Error />,
+      },
       {
         path: "admin/accounts",
         element: <Accounts />,
@@ -51,30 +53,14 @@ const router = createBrowserRouter([
         path: "admin/debitOrders/:accountName",
         element: <DebitOrders />,
         errorElement: <Error />,
-      },
-      {
-        path: "admin/login",
-        element: <Login />,
-        errorElement: <Error />,
-      },
+      }
     ],
   },
-  /*{
-    path: "admin/mfa",
-    index: true,
-    element: <MFA />,
-  },
-
   {
-    path: "admin/confirmation",
+    path: "/unauthorized",
     index: true,
-    element: <Confirmation />,
-  },
-  {
-    path: "admin/signup",
-    index: true,
-    element: <SignUp />,
-  },*/
+    element: <Unauthenticated />,
+  }
 ]);
 
 function App() {

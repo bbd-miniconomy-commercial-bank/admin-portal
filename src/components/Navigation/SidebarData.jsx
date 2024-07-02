@@ -31,7 +31,7 @@ export const SidebarData = [
     },
     {
       title: 'Logout',
-      path: '/admin/login',
+      path: '/login',
       icon: <MdLogout />,
       cName: 'nav-text'
     }

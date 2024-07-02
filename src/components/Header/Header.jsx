@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { signOut } from "aws-amplify/auth";
+import { LoginLink, LogoutLink } from "../Authentication/AuthLink";
 import { useState } from "react";
 
 import logo from "../../assets/bank-logo.svg";
@@ -16,7 +16,7 @@ const Header = ({ logoutButton }) => {
             </div>
             {logoutButton && (
                 <button className="logout-button" onClick={async () => {
-                    await signOut().then(() => {
+                    await LogoutLink().then(() => {
                         navigate("/admin/login");
                     });
                 }}>

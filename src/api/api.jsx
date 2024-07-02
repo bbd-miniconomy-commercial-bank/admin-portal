@@ -81,3 +81,12 @@ export const getDebitOrderByAccountName = async (accountName) => {
     return data;
 }
 
+export function postDataWithoutBearer(endpoint, payload) {
+    return fetch(`${url}/${endpoint}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    });
+}
