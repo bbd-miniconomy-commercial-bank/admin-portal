@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import { LogoutLink } from "../Authentication/AuthLink";
-import logo from "../../assets/bank-logo.svg";
+import logo from "../../assets/logo_large.svg";
+import title from "../../assets/bank-l-title.svg"
 import "./Header.css";
 
 const Header = ({ isLoggedIn, handleLogout }) => {

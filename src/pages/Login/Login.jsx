@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LoginLink } from "../../components/Authentication/AuthLink.jsx";
 import Card from 'react-bootstrap/Card';
 import './Login.css';
 import Header from '../../components/Header/Header.jsx';
