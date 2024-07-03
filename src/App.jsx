@@ -18,10 +18,8 @@ const App = () => {
   };
 
   const handleLogin = () => {
-
-    setIsLoggedIn(() => {
-      
-    });
+    
+    setIsLoggedIn(true);
   };
 
   const router = createBrowserRouter([
