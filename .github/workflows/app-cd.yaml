@@ -44,5 +44,5 @@ jobs:
           npm run build
 
       - name: Deploy Website Files
-        working-directory: ./build
+        working-directory: ./dist
         run: aws s3 cp . s3://admin-portal-frontend/ --recursive
