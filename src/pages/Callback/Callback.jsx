@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { AlertType, postDataWithoutBearer, showAlert } from '../utils';
+import { AlertType, showAlert } from '../utils/Alerts.jsx';
+import postDataWithoutBearer from '../../api/api.jsx';
 import './css/Callback.css';
 import Error from '../Error/Error.jsx'
 

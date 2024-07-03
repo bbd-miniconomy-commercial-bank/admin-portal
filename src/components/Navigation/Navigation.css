@@ -10,13 +10,13 @@
 .nav-menu {
     background: #ffffff;
     width: 20%;
-    top:auto;
+    top: auto;
     height: 100vh;
     display: flex;
     justify-content: center;
     position: fixed;
     left: 0;
-    border-right: 1px solid #ccc; /* Add this line to create a border */
+    border-right: 1px solid #ccc;
 /*left: -100%;
 transition: 850ms;*/
 }
@@ -27,14 +27,14 @@ transition: 450ms;
 }*/
 
 .nav-text {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 8px 0px 8px 16px;
-    list-style: none;
-    height: 60px;
-    color: var(--quaternary);
-    border-bottom: 1px solid #ccc;
+     display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+  color: var(--quaternary);
+  border-bottom: 1px solid #ccc;
 }
 
 .nav-text a {
@@ -47,18 +47,6 @@ transition: 450ms;
     padding: 0 16px;
     border-radius: 4px;
 }
-
-.nav-text a {
-    text-decoration: none;
-    font-size: 18px;
-    width: 95%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    border-radius: 4px;
-}
-
 
 .nav-text a:hover {
     background: var(--primary);

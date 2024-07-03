@@ -1,26 +1,31 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { Link, useLocation } from 'react-router-dom';
-import { LoginLink, LogoutLink } from "../../components/Authentication/AuthLink.jsx";
-import Header from "../../components/Header/Header.jsx"
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { LoginLink } from "../../components/Authentication/AuthLink.jsx";
+import Card from 'react-bootstrap/Card';
+import './Login.css';
+import Header from '../../components/Header/Header.jsx';
 
-const Login = () => {
-    const navigate = useNavigate();
+const Login = ({ handleLogin }) => {
+  const navigate = useNavigate();
 
-    const location = useLocation();
-    const [currentPath, setCurrentPath] = useState(location.pathname);
+  const onLogin = () => {
+    handleLogin();
+    navigate("/admin/accounts"); // Redirect to a protected route after login
+  };
 
-    useEffect(() => {
-        setCurrentPath(location.pathname);
-      }, 
-      [location.pathname]
-    );
-    
-    return (
-        <div>
-            <LoginLink />
+  return (
+    <div>
+        <Header />
+        <div className="main-container">
+            <Card className="login-header login-card">
+                <Card.Header>Welcome to Commercial Bank Admin Portal</Card.Header>
+            </Card>
+            <div className="login-container">
+                <button onClick={onLogin}>Login</button>
+            </div>
         </div>
-    )
-}
+    </div>
+  );
+};
 
-export default Login
+export default Login;

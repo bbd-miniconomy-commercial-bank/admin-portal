@@ -81,7 +81,7 @@ export const getDebitOrderByAccountName = async (accountName) => {
     return data;
 }
 
-export function postDataWithoutBearer(endpoint, payload) {
+export const postDataWithoutBearer = async (endpoint, payload) => {
     return fetch(`${url}/${endpoint}`, {
         method: 'POST',
         headers: {
