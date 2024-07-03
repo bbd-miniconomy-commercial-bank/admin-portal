@@ -39,44 +39,10 @@ jobs:
         run: |
           npm install
 
-      - name: Build Project
-        run: npm run build
-          
-      - name: Delete all objects in S3 bucket
-        run: aws s3 rm s3://${{ secrets.BUCKET_NAME }} --recursive
-
-      - name: Upload artifact to S3
+      - name: Build App
         run: |
-          aws s3 cp assets s3://${{ secrets.BUCKET_NAME }}/assets --recursive
-          aws s3 cp index.html s3://${{ secrets.BUCKET_NAME }}/index.html
-        working-directory: dist
+          npm run build
 
-      - name: Copy package.json to dist folder
-        run: cp package.json dist/
-
-      - name: Zip dist folder
-        run: zip -r dist.zip dist/
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: v${{ github.run_number }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Application Release
-          draft: false
-          prerelease: false
-
-
-      - name: Upload release asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist.zip
-          asset_name: dist.zip
-          asset_content_type: application/zip
+      - name: Deploy Website Files
+        working-directory: ./dist
+        run: aws s3 cp . s3://admin-portal-frontend/ --recursive
