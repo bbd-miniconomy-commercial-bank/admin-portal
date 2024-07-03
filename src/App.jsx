@@ -8,7 +8,7 @@ import Main from "./layouts/Main/Main.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Error from "./pages/Error/Error.jsx";
 import Callback from './components/Callback/Callback.jsx';
-import { cognitoConfig } from '../aws-config.js';
+import { awsConfig } from '../aws-config.js';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
