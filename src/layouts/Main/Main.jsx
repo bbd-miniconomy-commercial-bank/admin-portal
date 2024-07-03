@@ -1,18 +1,18 @@
-import {Outlet} from "react-router-dom";
-
 import Header from "../../components/Header/Header.jsx"
-import Navigation from "../../components/Navigation/Navigation.jsx"
+import Navigation from "../../components/Navigation/Navigation.jsx";
+import React from 'react';
+import { Outlet } from "react-router-dom";
 
-const Main = () => {
-    return (
-        <div>
-            <Header logoutButton={true} />
-            <Navigation />
-            <main>
-                <Outlet />
-            </main>
-        </div>
-    )
+const Main = ({ isLoggedIn, handleLogout }) => {
+  return (
+    <div>
+      <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+      {isLoggedIn && <Navigation />}
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
 }
 
-export default Main
+export default Main;

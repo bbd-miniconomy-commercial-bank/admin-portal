@@ -4,6 +4,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    border-bottom: 1px solid var(--primary); /* Add this line to create a border */
+    background: var(--primary);
 }
 
 .logo-container {
@@ -17,7 +19,7 @@
 }
 
 .logo-image {
-    width: 4rem;
+    width: 10rem;
     height: auto;
     margin-right: 1rem;
 }
@@ -26,27 +28,15 @@
     font-size: 2rem;
     font-weight: bold;
     margin: 0;
+    color: var(--tertiary);
 }
 
-.navbar-collapse {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+button {
+    color: var(--primary);
+    background: var(--quaternary);
 }
 
-.nav-item {
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    width: 100%;
+button:hover {
+    background: var(--tertiary);
 }
 
-.nav-link {
-    flex-grow: 1;
-    text-align: left;
-}
-
-.nav-item::after {
-    content: ">";
-    margin-left: auto;
-}

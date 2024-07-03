@@ -1,18 +1,19 @@
-.account-card {
-    width: 80%;
+.login-card {
+    margin-top: 1rem;
+    width: 60%;
     height: 22vh;
-    margin: 1rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     border-radius: 8px; /* Smoother corners */
-}
-
-.account-card:hover {
+  }
+  
+.login-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
-
-.account-header {
+  
+.login-header {
+    /*margin-left: 20%;*/
     background-color: #f8f9fa;
     height: 15%;
     font-size: 1.5em; /* Fixed font size */
@@ -22,32 +23,30 @@
     border-top-left-radius: 15px; /* Match corners to card */
     border-top-right-radius: 15px; /* Match corners to card */
 }
+  
 
-.card-title {
-    font-size: 1.5em; /* Relative font size */
-    margin: 0 16px; /* Adjusted margin */
+.main-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.card-text {
-    font-size: 1em; /* Relative font size */
-    text-align: right;
-    padding: 0 15px; /* Adjusted padding */
+.login-container {
+    padding: 20px; /* Adjust padding as needed */
+    /*margin-left: 20%;*/
 }
-
-.card-text ul {
-    text-decoration: underline;
-    list-style-type: none;
+  
+button {
+    /*padding: 20px; /* Adjust padding as needed */
+    font-size: 1rem;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
 }
-
-.card-footer {
-    font-size: 1.2em; /* Relative font size */
-    margin-left: 1rem; /* Adjusted margin */
-    top:0;
+  
+button:hover {
+    background: var(--secondary);
 }
-
-.card-footer h3, .card-footer p {
-    margin: 0;
-    font-size: 0.9em; /* Relative font size */
-    color: #888;
-}
+  

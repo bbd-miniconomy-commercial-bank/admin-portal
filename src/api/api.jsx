@@ -1,4 +1,4 @@
-const url = "https://api.commercialbank.projects.bbdgrad.com/";
+const url = "https://localhost:5000";
 
 export const getAllAccounts = async () => {
     //const response = await fetch(`${url}/admin/accounts`, {
@@ -81,3 +81,12 @@ export const getDebitOrderByAccountName = async (accountName) => {
     return data;
 }
 
+export function postDataWithoutBearer(endpoint, payload) {
+    return fetch(`${url}/${endpoint}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    });
+}
