@@ -1,0 +1,53 @@
+.account-card {
+    width: 80%;
+    height: 22vh;
+    margin: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 8px; /* Smoother corners */
+}
+
+.account-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.account-header {
+    background-color: #f8f9fa;
+    height: 15%;
+    font-size: 1.5em; /* Fixed font size */
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+    border-top-left-radius: 15px; /* Match corners to card */
+    border-top-right-radius: 15px; /* Match corners to card */
+}
+
+.card-title {
+    font-size: 1.5em; /* Relative font size */
+    margin: 0 16px; /* Adjusted margin */
+}
+
+.card-text {
+    font-size: 1em; /* Relative font size */
+    text-align: right;
+    padding: 0 15px; /* Adjusted padding */
+}
+
+.card-text ul {
+    text-decoration: underline;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.card-footer {
+    font-size: 1.2em; /* Relative font size */
+    margin-left: 1rem; /* Adjusted margin */
+    top:0;
+}
+
+.card-footer h3, .card-footer p {
+    margin: 0;
+    font-size: 0.9em; /* Relative font size */
+    color: #888;
+}

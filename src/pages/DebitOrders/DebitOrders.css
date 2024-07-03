@@ -1,0 +1,73 @@
+.debit-orders-card {
+  margin-top: 1rem;
+  width: 60%;
+  height: 22vh;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 8px; /* Smoother corners */
+}
+
+.debit-orders-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.debit-orders-header {
+  margin-left: 20%;
+  background-color: #f8f9fa;
+  height: 15%;
+  font-size: 1.5em; /* Fixed font size */
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  border-top-left-radius: 15px; /* Match corners to card */
+  border-top-right-radius: 15px; /* Match corners to card */
+}
+
+.main-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.debit-orders-container {
+  padding: 20px; /* Adjust padding as needed */
+  margin-left: 20%;
+}
+
+.search-container {
+  margin-bottom: 20px; /* Space between the search input and the table */
+}
+
+.search-input {
+  width: 50%; /* Adjust width as needed */
+  padding: 10px; /* Add padding for better visibility */
+  border: 1px solid #ccc; /* Add a border to make it more visible */
+  border-radius: 4px; /* Optional: Add border-radius for a smoother look */
+}
+
+.debit-orders {
+  width: 95%; /* Adjust the width as per your sidebar's width */
+  box-sizing: border-box;
+  margin-top: 1em;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  height: 3em;
+}
+
+/* Hide pagination controls when not needed */
+.p-datatable.p-datatable-gridlines .p-datatable-tbody > tr {
+  display: flex;
+  justify-content: center;
+}
+
+.p-datatable.p-datatable-gridlines .p-paginator-bottom .p-paginator {
+  display: none;
+}
+
+/* Ensure pagination is correctly positioned */
+.p-paginator-bottom {
+  display: flex;
+  justify-content: center;
+}
