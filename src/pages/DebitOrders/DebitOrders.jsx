@@ -1,5 +1,6 @@
 import React from "react";
 import "./DebitOrders.css"
+import "../pages.css"
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { debitOrders } from "./DebitOrdersData";
@@ -69,7 +70,7 @@ const DebitOrders = () => {
           <Column field="debitAccountName" header="Debit Account" sortable></Column>
           <Column field="creditAccountName" header="Credit Account" sortable></Column>
           <Column field="creationDate" header="Date" sortable></Column>
-          <Column field="debitOrderAmount" header="Amount" sortable></Column>
+          <Column field="debitOrderAmount" header="Amount (mÐ)" sortable></Column>
           <Column field="senderRef" header="Sender Ref." sortable></Column>
           <Column field="receiverRef" header="Receiver Ref." sortable></Column>
           <Column field="disabled" header="Status" sortable body={(rowData) => statusBadge(rowData.disabled)}/>

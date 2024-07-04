@@ -38,6 +38,8 @@
     text-decoration: underline;
     list-style-type: none;
     cursor: pointer;
+    padding: 0;
+    margin: 0;
 }
 
 .card-footer {
@@ -50,4 +52,54 @@
     margin: 0;
     font-size: 0.9em; /* Relative font size */
     color: #888;
+}
+
+@media (max-width: 768px) {
+    .account-card {
+        width: 90%;
+        height: auto;
+        margin: 0.5rem 0;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .card-text {
+        font-size: 0.9em;
+        padding: 0 10px;
+    }
+
+    .card-footer {
+        font-size: 1em;
+    }
+
+    .card-footer h3, .card-footer p {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .account-card {
+        width: 100%;
+        height: auto;
+        margin: 0.5rem 0;
+    }
+
+    .card-title {
+        font-size: 1em;
+    }
+
+    .card-text {
+        font-size: 0.8em;
+        padding: 0 5px;
+    }
+
+    .card-footer {
+        font-size: 0.9em;
+    }
+
+    .card-footer h3, .card-footer p {
+        font-size: 0.7em;
+    }
 }

@@ -2,7 +2,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    padding: 6rem 1rem 1rem; /* Adjust the top padding to fit below the fixed header */
     margin-left: 20%; /* Offset for the sidebar width */
     width: 80%; /* Adjust width to fit the remaining space */
+}
+
+@media (max-width: 1024px) {
+    .accounts {
+        margin-left: 15%; /* Adjust offset for medium screens */
+        width: 85%; /* Adjust width accordingly */
+        margin-top: 25%;
+    }
+}
+
+@media (max-width: 768px) {
+    .accounts {
+        margin-left: 0%; /* Adjust offset for smaller screens */
+        width: 90%; /* Adjust width accordingly */
+        padding: 4rem 1rem 1rem; /* Adjust padding */
+        margin-top: 25%;
+    }
+}
+
+@media (max-width: 480px) {
+    .accounts {
+        margin-left: 0; /* Remove sidebar offset for very small screens */
+        width: 100%; /* Full width */
+        padding: 2rem 0.5rem 0.5rem; /* Adjust padding */
+        margin-top: 25%;
+    }
 }

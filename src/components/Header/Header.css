@@ -4,8 +4,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    border-bottom: 1px solid var(--primary); /* Add this line to create a border */
+    border-bottom: 1px solid var(--primary);
     background: var(--primary);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure the header is above other content */
 }
 
 .logo-container {
@@ -39,4 +43,3 @@ button {
 button:hover {
     background: var(--tertiary);
 }
-
