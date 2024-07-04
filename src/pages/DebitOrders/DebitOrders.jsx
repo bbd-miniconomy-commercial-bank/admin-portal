@@ -18,20 +18,20 @@ import Card from 'react-bootstrap/Card';
 
 const statusBadge = (status) => {
   const badgeStyle = {
-    borderRadius: '6px', // Decrease border-radius
-    padding: '0px 5px 5px 5px',  // Add padding for space between border and text
+    borderRadius: '6px',
+    padding: '0px 5px 5px 5px',  
   };
   if (status === false) {
     return <Badge value="On going" severity="success" style={badgeStyle}></Badge>
   } else if (status === true) {
     return <Badge value="Finished" severity="danger" style={badgeStyle}></Badge>
   }
-  return status; // Fallback if status is neither 'Pending' nor 'Completed'
+  return status; 
 };
 
 const DebitOrders = () => {
 
-  const { accountName } = useParams(); // Grab accountName from URL parameter
+  const { accountName } = useParams(); 
 
   const [filters, setFilters] = useState({
     global: { value:null, matchMode: FilterMatchMode.CONTAINS },
@@ -70,7 +70,7 @@ const DebitOrders = () => {
           <Column field="debitAccountName" header="Debit Account" sortable></Column>
           <Column field="creditAccountName" header="Credit Account" sortable></Column>
           <Column field="creationDate" header="Date" sortable></Column>
-          <Column field="debitOrderAmount" header="Amount (mÐ)" sortable></Column>
+          <Column field="debitOrderAmount" header="Amount (Ð)" sortable></Column>
           <Column field="senderRef" header="Sender Ref." sortable></Column>
           <Column field="receiverRef" header="Receiver Ref." sortable></Column>
           <Column field="disabled" header="Status" sortable body={(rowData) => statusBadge(rowData.disabled)}/>
