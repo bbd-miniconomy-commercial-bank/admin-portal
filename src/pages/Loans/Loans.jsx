@@ -18,20 +18,20 @@ import Card from 'react-bootstrap/Card';
 
 const statusBadge = (status) => {
   const badgeStyle = {
-    borderRadius: '6px', // Decrease border-radius
-    padding: '0px 5px 5px 5px',  // Add padding for space between border and text
+    borderRadius: '6px', 
+    padding: '0px 5px 5px 5px',  
   };
   if (status === "Long Term") {
     return <Badge value="Long Term" severity="info" style={badgeStyle}></Badge>
   } else if (status === "Short Term") {
     return <Badge value="Short Term" severity="warning" style={badgeStyle}></Badge>
   }
-  return status; // Fallback if status is neither 'Pending' nor 'Completed'
+  return status; 
 };
 
 const Loans = () => {
 
-  const { accountName } = useParams(); // Grab accountName from URL parameter
+  const { accountName } = useParams(); 
 
   const [filters, setFilters] = useState({
     global: { value:null, matchMode: FilterMatchMode.CONTAINS },
@@ -68,7 +68,7 @@ const Loans = () => {
         >
           <Column field="id" header="ID" sortable></Column>
           <Column field="accountName" header="Account" sortable></Column>
-          <Column field="loanAmount" header="Amount (mÐ)" sortable></Column>
+          <Column field="loanAmount" header="Amount (Ð)" sortable></Column>
           <Column field="loanType" header="Loan Type" sortable body={(rowData) => statusBadge(rowData.loanType)}/>
         </DataTable>
       </div>

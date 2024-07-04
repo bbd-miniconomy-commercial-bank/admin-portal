@@ -18,20 +18,20 @@ import Card from 'react-bootstrap/Card';
 
 const statusBadge = (status) => {
   const badgeStyle = {
-    borderRadius: '6px', // Decrease border-radius
-    padding: '0px 5px 5px 5px',  // Add padding for space between border and text
+    borderRadius: '6px',
+    padding: '0px 5px 5px 5px',  
   };
   if (status === 'pending') {
     return <Badge value="pending" severity="danger" style={badgeStyle}></Badge>
   } else if (status === 'completed') {
     return <Badge value="completed" severity="success" style={badgeStyle}></Badge>
   }
-  return status; // Fallback if status is neither 'Pending' nor 'Completed'
+  return status; 
 };
 
 const Transactions = () => {
 
-  const { accountName } = useParams(); // Grab accountName from URL parameter
+  const { accountName } = useParams();
 
   const [filters, setFilters] = useState({
     global: { value:null, matchMode: FilterMatchMode.CONTAINS },
@@ -71,7 +71,7 @@ const Transactions = () => {
           <Column field="debitAccountName" header="Debit Account" sortable style={{ width: '20% '}}></Column>
           <Column field="creditAccountName" header="Credit Account" sortable style={{ width: '20% '}}></Column>
           <Column field="transactionDate" header="Date" sortable style={{ width: '15% '}}></Column>
-          <Column field="transactionAmount" header="Amount (mÐ)" sortable style={{ width: '5% '}}></Column>
+          <Column field="transactionAmount" header="Amount (Ð)" sortable style={{ width: '5% '}}></Column>
           <Column field="creditRef" header="Dredit Ref." sortable style={{ width: '20% '}}></Column>
           <Column field="debitRef" header="Debit Ref." sortable style={{ width: '30% '}}></Column>
           <Column field="transactionStatus" header="Status" sortable body={(rowData) => statusBadge(rowData.transactionStatus)}></Column>

@@ -34,7 +34,7 @@ const AccountCard = ({ id, title, accountName, balance, isHeader }) => {
             </Card.Text>
             <Card.Footer className="card-footer">
               <p>Available Balance</p>
-              <h3>mÐ {balance}</h3>
+              <h3>Ð {balance}</h3>
             </Card.Footer>
           </Card.Body>
         </>
