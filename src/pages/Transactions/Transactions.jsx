@@ -1,5 +1,6 @@
 import React from "react";
 import "./Transactions.css"
+import "../pages.css"
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { transactions } from "./TransactionsData";
@@ -70,7 +71,7 @@ const Transactions = () => {
           <Column field="debitAccountName" header="Debit Account" sortable style={{ width: '20% '}}></Column>
           <Column field="creditAccountName" header="Credit Account" sortable style={{ width: '20% '}}></Column>
           <Column field="transactionDate" header="Date" sortable style={{ width: '15% '}}></Column>
-          <Column field="transactionAmount" header="Amount" sortable style={{ width: '5% '}}></Column>
+          <Column field="transactionAmount" header="Amount (mÐ)" sortable style={{ width: '5% '}}></Column>
           <Column field="creditRef" header="Dredit Ref." sortable style={{ width: '20% '}}></Column>
           <Column field="debitRef" header="Debit Ref." sortable style={{ width: '30% '}}></Column>
           <Column field="transactionStatus" header="Status" sortable body={(rowData) => statusBadge(rowData.transactionStatus)}></Column>

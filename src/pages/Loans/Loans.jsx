@@ -1,5 +1,6 @@
 import React from "react";
 import "./Loans.css"
+import "../pages.css"
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { loans } from "./LoansData";
@@ -67,7 +68,7 @@ const Loans = () => {
         >
           <Column field="id" header="ID" sortable></Column>
           <Column field="accountName" header="Account" sortable></Column>
-          <Column field="loanAmount" header="Amount" sortable></Column>
+          <Column field="loanAmount" header="Amount (mÐ)" sortable></Column>
           <Column field="loanType" header="Loan Type" sortable body={(rowData) => statusBadge(rowData.loanType)}/>
         </DataTable>
       </div>
